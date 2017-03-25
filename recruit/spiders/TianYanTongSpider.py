@@ -80,11 +80,32 @@ class TanYanTongSpider(CrawlSpider):
             item['enterpreneur_name'] = sel.xpath('//div[@class="baseinfo-module-content-value-fr baseinfo-module-content-value"]/a/@title').extract()[0]
             item['company_name'] = sel.xpath('//div[@class="in-block ml10 f18 mb5 ng-binding"]/text()').extract()[0]
             item['company_addr'] = sel.xpath('//*[@id="ng-view"]/div[2]/div/div/div/div[1]/div/div[6]/table/tbody/tr[5]/td/div/span/text()').extract()[0]
-            yield item
+            return item
         except:
             time.sleep(time_dalay)
             yield SplashRequest(base_url,
                                 self.parse_item,
                                 args=splash_args,
                                 )
-            # 传入给piplelines的 到底是什么。
+            # 传入给piplelines的 到底是什么。biubiu
+            # request里的args里的proxies如何切换的，是否真的可以切换。
+            '''
+            一般是 筛选完成后，得到可用的ip列表，然后可以从里面按照调用的时间等参数，进行选择。
+            '''
+            # 最后这个yeild我认为是有问题的。如果ip有问题的话，那么就一直会循环.话说用return一样的吧，又没有for
+            # scrapy是否有切换代理的机制
+            '''
+            切换机制一般自己定义。
+            可以 写在middleware里。
+            详细的midderware在setting设置产生的效果有待查证。
+            '''
+            # scrapy的轮训机制到底是怎样的
+            '''
+            例如 有大量的链接，先从start_request里面获取链接啦，然后再处理呗
+            start_request是有限的啦。哎。根据具体的定义而不同。
+            记得直接获取了很多的页面的链接的时候，记得set去重。
+            '''
+            # user_agent一大串如何切换
+            '''
+            可以用random.choice随便选一个啦，保证一大串都是可用的就好了。每次发送请求的时候，都随便切换一个。
+            '''
