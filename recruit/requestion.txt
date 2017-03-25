@@ -1,0 +1,46 @@
+ INFO: Crawled 73 pages (at 73 pages/min), scraped 54 items (at 54 items/min)
+
+
+ {'downloader/exception_count': 111,
+ 'downloader/exception_type_count/twisted.internet.error.ConnectionRefusedError': 103,
+ 'downloader/exception_type_count/twisted.web._newclient.ResponseNeverReceived': 8,
+ 'downloader/request_bytes': 2011356,
+ 'downloader/request_count': 1015,
+ 'downloader/request_method_count/POST': 1015,
+ 'downloader/response_bytes': 76627415,
+ 'downloader/response_count': 904,
+ 'downloader/response_status_count/200': 904,
+ 'dupefilter/filtered': 173,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2017, 3, 19, 23, 48, 4, 810539),
+ 'item_scraped_count': 680,
+ 'log_count/DEBUG': 1697,
+ 'log_count/ERROR': 37,
+ 'log_count/INFO': 19,
+ 'request_depth_max': 3,
+ 'response_received_count': 904,
+ 'scheduler/dequeued': 1956,
+ 'scheduler/dequeued/memory': 1956,
+ 'scheduler/enqueued': 1956,
+ 'scheduler/enqueued/memory': 1956,
+ 'splash/render.html/request_count': 941,
+ 'splash/render.html/response_count/200': 904,
+ 'start_time': datetime.datetime(2017, 3, 19, 23, 35, 24, 802199)}
+2017-03-20 07:48:04 [scrapy.core.engine] INFO: Spider closed (finished)
+
+
+    # ['http://www.tianyancha.com/v2/search/%22%24%22.json?&pn={}&type=tail'.format(page) for page in xrange(50)]
+    # rules = [Rule(SgmlLinkExtractor(allow=('company/\d+')),
+    #                                 # restrict_xpaths=("//div[@class='search_right_item']/div/div/a/@href")),
+    #             follow=True,
+    #             callback='parse_item',)
+    # ]
+# (r'http://www.tianyancha.com/company/[0-9]*')
+# http://blog.csdn.net/u012150179/article/details/23303543
+#http://www.tianyancha.com/v2/search/%22%24%22.json?&type=tail
+
+# how to get url without splash??
+# why splash the first did not render???
+    # why not first??  seems too mess.
+        # how to comfirm all data were crawl??
+        #
